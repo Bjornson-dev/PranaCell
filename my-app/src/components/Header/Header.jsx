@@ -1,25 +1,26 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import s from "./Header.module.sass";
-import Link from "./Link/Link";
 import logo from "./../../images/logo.jpg";
 
 const Header = (props) => {
+	let text = props.text;
 	return (
 		<header className={s.header}>
-			<div className={s.logoContainer}>
-				<img className={s.logo} src={logo} alt="Логотип" />
-			</div>
+			<div className={`container ${s.container}`}>
+				<div className={s.logoWrapper}>
+					<img src={logo} alt="Логотип PranaCell" />
+				</div>
 
-			<nav className={s.nav}>
-				<ul className={s.list}>
-					<Link path="/" text="Главная" />
-					<Link path="/immunotherapy" text="Имуннотерапия" />
-					<Link path="/effects" text="Побочные эффекты" />
-					<Link path="/treatment" text="Лечение" />
-					<Link path="/faq" text="Частые вопросы" />
-					<Link path="/rehabelitation" text="Реабелитация" />
-				</ul>
-			</nav>
+				<nav>
+					<NavLink to="/home">{text.home.link}</NavLink>
+					<NavLink to="/immunotherapy">{text.immuno.link}</NavLink>
+					<NavLink to="/effects">{text.effects.link}</NavLink>
+					<NavLink to="/treatment">{text.treat.link}</NavLink>
+					<NavLink to="/faq">{text.faq.link}</NavLink>
+					<NavLink to="/rehabelitation">{text.reha.link}</NavLink>
+				</nav>
+			</div>
 		</header>
 	);
 };

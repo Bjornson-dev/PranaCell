@@ -1,29 +1,28 @@
 import React from "react";
 import "./App.css";
+import { Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-import { BrowserRouter, Route } from "react-router-dom";
-import MainPage from "./components/MainPage/MainPage";
-import Immunotherapy from "./components/Immunotherapy/Immunotherapy";
-import Effects from "./components/Effects/Effects";
-import Treatment from "./components/Treatment/Treatment";
-import Faq from "./components/Faq/Faq";
-import Rehabelitation from "./components/Rehabelitation/Rehabelitation";
 
-function App() {
+function App(props) {
 	return (
-		<BrowserRouter>
-			<div className="App">
-				<Header />
-
-				<Route exact path="/" render={() => <MainPage />} />
-				<Route path="/immunotherapy" render={() => <Immunotherapy />} />
-				<Route path="/effects" render={() => <Effects />} />
-				<Route path="/treatment" render={() => <Treatment />} />
-				<Route path="/faq" render={() => <Faq />} />
-				<Route path="/rehabelitation" render={() => <Rehabelitation />} />
-			</div>
-		</BrowserRouter>
+		<div>
+			<Header text={props.text} />
+			<Route path="/home"></Route>
+			<Route path="/immunotherapy"></Route>
+			<Route path="/effects"></Route>
+			<Route path="/treatment"></Route>
+			<Route path="/faq"></Route>
+			<Route path="/rehabelitation"></Route>
+		</div>
 	);
 }
 
 export default App;
+
+// {/* <NavLink exact to="/">
+//   Русский
+// </NavLink>
+// <NavLink to="/en">Английский</NavLink>
+
+// <Route exact path="/" render={() => <Header text={props.langs.ru} />} />
+// <Route path="/en" render={() => <Header text={props.langs.en} />} /> */}
