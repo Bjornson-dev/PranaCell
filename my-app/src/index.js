@@ -12,7 +12,7 @@ ReactDOM.render(
 		<BrowserRouter>
 			<LangSwitcher />
 
-			<Redirect exact from="/" to="/ru" />
+			<Redirect exact from="/" to="/ru/home" />
 			<Route
 				path="/ru"
 				render={() => {

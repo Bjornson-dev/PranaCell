@@ -2,17 +2,26 @@ import React from "react";
 import "./App.css";
 import { Route } from "react-router-dom";
 import Header from "./components/Header/Header";
+import HomePage from "./components/HomePage/HomePage";
+import g from "./components/Global.module.sass";
 
 function App(props) {
 	return (
 		<div>
 			<Header text={props.text} />
-			<Route path="/home"></Route>
-			<Route path="/immunotherapy"></Route>
-			<Route path="/effects"></Route>
-			<Route path="/treatment"></Route>
-			<Route path="/faq"></Route>
-			<Route path="/rehabelitation"></Route>
+			<main className={g.main}>
+				<div className={g.container + " " + "container"}>
+					<Route
+						path="/home"
+						render={() => <HomePage text={props.text.home} />}
+					></Route>
+					<Route path="/immunotherapy"></Route>
+					<Route path="/effects"></Route>
+					<Route path="/treatment"></Route>
+					<Route path="/faq"></Route>
+					<Route path="/rehabelitation"></Route>
+				</div>
+			</main>
 		</div>
 	);
 }
